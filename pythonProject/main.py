@@ -115,10 +115,11 @@ while paginaActual <= math.ceil(paginas):
     z = 0
     for row in range(5):
         for col in range(5):
-            axs[row, col].imshow(imagenes[z])
             axs[row, col].axis('off')
-            axs[row, col].text(0.5, -0.15, noMeSuiguenUsuarios[y], transform=axs[row, col].transAxes,
-                    fontsize=6, ha='center')
+            if y < cantidad:
+                axs[row, col].imshow(imagenes[z])
+                axs[row, col].text(0.5, -0.15, noMeSuiguenUsuarios[y], transform=axs[row, col].transAxes,
+                        fontsize=6, ha='center')
             y += 1
             z += 1
     plt.show()
